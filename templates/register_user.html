@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<!--Main layout-->
+<main>
+    <div class="container">
+        <!-- Heading -->
+        <h3 class="my-3 text-left">Sign-up</h3>
+  
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-md-12 mb-4">
+                <!--Card-->
+                <div class="card p-4">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <button class="btn btn-primary">Submit</button>
+                    </form><br>
+                    <div>
+                        Already have an account? <a href="{% url 'login' %}" >Login</a>
+                    </div>
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--Grid column-->
+  
+        </div>
+        <!--Grid row-->
+    </div>
+  </main>
+  <!--Main layout-->
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
+

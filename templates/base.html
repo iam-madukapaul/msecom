@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  {% load django_bootstrap5 %}
+
+  {% bootstrap_css %}
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="{% static 'img/mdb-favicon.ico' %}" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripe = Stripe("pk_test_51OIqQeLza9sGZ8NLNNxm7LWyN6OluV1oVpX0CaUZrQW0Xpq0NnUxCCw23p20m4e2jwELnHgu5h9iGSgwBL0Cygdf00CxUgXcHk");
+    </script>
+
+  
+  <style>
+    .carousel-item {
+      height: 50vh;
+    }
+
+    .card {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .footer-cta {
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+    }
+
+    .price {
+      color: #263238;
+      font-size: 24px;
+    }
+
+    .card-title {
+      color: #263238
+    }
+
+    .sale {
+      color: #E53935
+    }
+
+    .sale-badge {
+      background-color: #E53935
+    }
+  </style>
+</head>
+
+<body>
+  {% include 'partials/_header.html' %}
+  <div class="mt-5 pt-4">
+    {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }}">
+    <a href="#" class="close" data-dismiss="alert">
+       &times;
+    </a>
+    {{message}} 
+ </div>
+  {% endfor %}
+  {% endif %}
+  </div>
+  {% block content %}
+  {% endblock %}
+  {% include 'partials/_footer.html' %}
+  {% include 'partials/_scripts.html' %}
+</body>
+
+</html>
